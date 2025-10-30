@@ -20,7 +20,7 @@ const projectData = {
     ],
     mockReports: [
         { id: 0, title: "Literature Presentation (Literatür Sunumu)", date: "01.10.2024", filePath: "/reports/litrerature_presentation.docx" },
-        { id: 1, title: "Project Proposal (Proje Teklifi)", date: "15.10.2024" },
+        { id: 1, title: "Project Proposal (Proje Teklifi)", date: "15.10.2024",filePath: "/reports/Project_Proposal.docx" },
         { id: 2, title: "Project Specifications Report (Proje Spesifikasyon Raporu)", date: "05.11.2024" },
         { id: 3, title: "Analysis Report (Analiz Raporu)", date: "20.11.2024" },
         { id: 4, title: "High Level Design Report (Üst Düzey Tasarım Raporu)", date: "10.12.2024" },
