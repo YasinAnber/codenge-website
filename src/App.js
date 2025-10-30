@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 
-import { Anchor, Users, FileText, TrendingUp, Cpu, Download, Zap, Link, Play, Scale } from 'lucide-react'; // Scale ikonunu ekledim!
+// 'Anchor' sembolü import listesinden kaldırıldı
+import { Users, FileText, TrendingUp, Cpu, Download, Zap, Link, Play, Scale } from 'lucide-react'; 
 
 import './index.css';
-import mainManuImage from './images/main_manu.jpg'; // <-- RESİM BURADAN İÇE AKTARILDI
+import mainManuImage from './images/main_manu3.jpg';
 
 
 // --- Sabit Veriler ---
@@ -21,9 +22,9 @@ const projectData = {
     mockReports: [
         { id: 0, title: "Literature Presentation (Literatür Sunumu)", date: "01.10.2024", filePath: "/reports/litrerature_presentation.docx" },
         { id: 1, title: "Project Proposal (Proje Teklifi)", date: "15.10.2024",filePath: "/reports/Project_Proposal.docx" },
-        { id: 2, title: "Project Specifications Report (Proje Spesifikasyon Raporu)", date: "05.11.2024" },
-        { id: 3, title: "Analysis Report (Analiz Raporu)", date: "20.11.2024" },
-        { id: 4, title: "High Level Design Report (Üst Düzey Tasarım Raporu)", date: "10.12.2024" },
+        { id: 2, title: "Project Specifications Report (Proje Spesifikasyon Raporu)", date: "05.11.2024" }, // Henüz dosya yolu yok
+        { id: 3, title: "Analysis Report (Analiz Raporu)", date: "20.11.2024" }, // Henüz dosya yolu yok
+        { id: 4, title: "High Level Design Report (Üst Düzey Tasarım Raporu)", date: "10.12.2024" }, // Henüz dosya yolu yok
     ],
     stakeholders: {
         coordinator: { name: "Abdulkadir Nazlı", role: "Koordinatör Mühendis" },
@@ -33,14 +34,14 @@ const projectData = {
             { name: "Ali Berkol", role: "Jüri Üyesi" },
         ]
     },
-    videoUrl: "https://www.youtube.com/embed/hVCLEepZ-KU", // Aircraft Center Of Gravity Explained
+    videoUrl: "https://www.youtube.com/embed/hVCLEepZ-KU", 
 };
 
 
 // --- Bileşenler ---
 
 
-// 1. Ana Sayfa (Resim Arka Planlı, Video ve Kontrol Düğmesi İçeren)
+// 1. Ana Sayfa (HeroSection)
 const HeroSection = () => {
     const [isVideoVisible, setIsVideoVisible] = useState(false);
 
@@ -52,18 +53,17 @@ const HeroSection = () => {
         <div 
             id="anasayfa" 
             className="relative h-[90vh] flex flex-col items-center justify-center text-white overflow-hidden bg-cover bg-center"
-            // VİDEO YERİNE RESİM BURAYA UYGULANDI
-            style={{ backgroundImage: `url(${mainManuImage})` }} // <--- GÜNCELLEME BURADA
+            style={{ backgroundImage: `url(${mainManuImage})` }} 
         >
-            {/* Arka Plan Gradient Efekti (Metin okunurluğu için bu önemli!) */}
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/80 to-blue-900/80 opacity-90"></div>
             
-            {/* Ana İçerik */}
             <div className="relative z-10 text-center px-4 md:px-8 max-w-4xl mx-auto">
                 <h1 className="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight">
                     {projectData.groupName}
                 </h1>
-                <p className="text-xl md:text-3xl font-light mb-6 text-blue-300">
+                
+                {/* Önceki istek üzerine 'text-blue-300' 'text-white' yapıldı */}
+                <p className="text-xl md:text-3xl font-light mb-6 text-white">
                     {projectData.tagline}
                 </p>
                 
@@ -71,7 +71,6 @@ const HeroSection = () => {
                     {projectData.program} Projesi
                 </span>
 
-                {/* Video Oynatıcı (ana içeriğin altında, açılıp kapanan) */}
                 <div 
                     className={`mt-10 max-w-full mx-auto transition-all duration-500 ease-in-out transform ${
                         isVideoVisible ? 'opacity-100 scale-100 h-auto' : 'opacity-0 scale-95 h-0 pointer-events-none'
@@ -91,7 +90,6 @@ const HeroSection = () => {
                 </div>
             </div>
 
-            {/* VİDEO BUTONU SOL ALTA SABİTLENDİ */}
             <button
                 onClick={handleToggleVideo}
                 className="fixed bottom-8 left-8 z-50 inline-flex items-center space-x-3 px-6 py-3 bg-pink-600 text-white font-bold rounded-full shadow-xl hover:bg-pink-700 transition duration-300 transform hover:scale-105 animate-bounce"
@@ -125,10 +123,11 @@ const DescriptionSection = () => (
     <section id="aciklama" className="py-16 px-4 md:px-12 bg-gray-50">
         <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-center text-gray-800 mb-10 border-b-4 border-indigo-500 inline-block pb-2">
-                <Anchor className="inline-block mr-2 align-top" /> Proje Detayı: Ağırlık Merkezi (AGM) Kontrolü
+                Proje Detayı: Ağırlık Merkezi (AGM) Kontrolü
             </h2>
 
-            <p className="text-lg text-gray-700 mb-10 leading-relaxed text-center italic font-medium">
+            {/* --- YENİ DEĞİŞİKLİK BURADA: 'italic' ve 'font-medium' kaldırıldı --- */}
+            <p className="text-lg text-gray-700 mb-10 leading-relaxed text-center">
                 Hava araçlarının tasarımında kritik bir parametre olan Ağırlık Merkezi (AGM), uçuş emniyetini, aerodinamik performansı ve yakıt verimliliğini doğrudan belirler. <span className="text-indigo-600 font-bold">CODENGE</span> projesi olarak, küçük ve büyük ölçekli hava platformlarında bu hayati dengeyi anlık olarak ölçmek ve sapmaları sıfırlamak üzere tasarlanmış tam otomatik bir dengeleme sistemi geliştirilecektir. Bu, havacılıkta operasyonel güvenilirliği artırmayı amaçlayan yenilikçi bir yaklaşımdır.
             </p>
 
@@ -136,7 +135,7 @@ const DescriptionSection = () => (
                 <div className="p-8 bg-white rounded-xl shadow-xl transition duration-300 hover:shadow-2xl border-t-4 border-indigo-500">
                     <TrendingUp className="text-indigo-500 w-10 h-10 mb-4" />
                     <h3 className="text-2xl font-bold text-gray-800 mb-3">Yüksek Hassasiyetli AGM Hesaplama ve Görselleştirme</h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 leading-relaxed">
                         Hava aracı yerdeyken, her bir iniş takımı altına konumlandırılan <span className="font-semibold text-gray-800">üç (3) adet yüksek hassasiyetli loadcell</span> aracılığıyla ağırlık verileri anlık olarak toplanır.
                         <br/><br/>
                         Bu veriler, hava aracının <span className="font-semibold text-gray-800">X ve Y eksenlerindeki</span> hassas ağırlık merkezi koordinatlarını hesaplamak için kullanılır. Geliştirdiğimiz C/C++ tabanlı gömülü yazılım ve kullanıcı dostu arayüz sayesinde, anlık AGM konumu görselleştirilir ve önceden tanımlanmış <span className="font-semibold text-green-700">optimum denge noktası</span> ile mevcut sapma net bir şekilde gösterilir.
@@ -144,16 +143,14 @@ const DescriptionSection = () => (
                 </div>
 
                 <div className="p-8 bg-white rounded-xl shadow-xl transition duration-300 hover:shadow-2xl border-t-4 border-green-500">
-                    {/* İKON DEĞİŞTİRİLDİ: Zap yerine Scale */}
                     <Scale className="text-green-500 w-10 h-10 mb-4" /> 
                     <h3 className="text-2xl font-bold text-gray-800 mb-3">Dinamik ve Otomatik Ağırlık Dengeleme Mekanizması</h3>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-gray-600 mb-4 leading-relaxed">
                         Kargo yükleme/boşaltma, yakıt tüketimi veya görev yükü değişimleri gibi operasyonel faktörler nedeniyle AGM'de meydana gelen sapmalarda, sistemimiz dengeyi <span className="font-semibold text-green-700">otonom olarak</span> sağlar.
                         <br/><br/>
                         Dengeleme, hava aracının boylamasına ve enlemesine düzlemlerde hareket edebilen, <span className="font-semibold text-green-700">servo motorlar ile kontrol edilen akıllı bir karşı ağırlık sistemi</span> kullanılarak gerçekleştirilir. Bu hareketli kütle, hesaplanan optimum AGM noktasına ulaşmak için gereken mesafeye milimetrik hassasiyetle komut alarak hareket eder.
                     </p>
                     <p className="mt-4 text-sm font-semibold text-indigo-700 p-3 bg-indigo-100 rounded-lg">
-                        {/* GELECEK VİZYONU GÜNCELLENDİ */}
                         Bu yöntem ileri safhalarda spesifik tekniklerle geliştirilip optimize edilecektir.
                     </p>
                 </div>
@@ -173,12 +170,10 @@ const TeamSection = () => (
             <div className="grid md:grid-cols-4 gap-8">
                 {projectData.members.map((member, index) => (
                     <div key={index} className="text-center p-6 bg-gray-800 rounded-xl shadow-lg border-t-4 border-indigo-600 transform hover:scale-[1.03] transition duration-300">
-                        {/* Mock Avatar */}
                         <div className="w-20 h-20 bg-blue-500/20 rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-bold border-2 border-blue-500">
                             {member.name.split(' ')[0][0]}{member.name.split(' ').slice(-1)[0][0]}
                         </div>
                         <h3 className="text-xl font-semibold text-white">{member.name}</h3>
-                        {/* ROL */}
                         <p className="text-sm text-blue-300 mt-1">{member.role}</p>
                     </div>
                 ))}
@@ -196,16 +191,13 @@ const StakeholderSection = () => (
                 <Link className="inline-block mr-2 align-top" /> Paydaşlar ve Yönetim
             </h2>
             
-            {/* Koordinatör ve Danışman */}
             <div className="grid md:grid-cols-2 gap-8 mb-12">
-                {/* Koordinatör Mühendis */}
                 <div className="p-6 bg-indigo-50 rounded-xl shadow-lg border-l-4 border-indigo-600">
                     <h3 className="text-2xl font-semibold text-gray-800 mb-3">{projectData.stakeholders.coordinator.role}</h3>
                     <p className="text-xl font-bold text-indigo-700">{projectData.stakeholders.coordinator.name}</p>
                     <p className="text-sm text-gray-500 mt-2">Teknik süreçlerin takibi ve proje yönetim desteği.</p>
                 </div>
                 
-                {/* Danışman Hoca */}
                 <div className="p-6 bg-blue-50 rounded-xl shadow-lg border-l-4 border-blue-600">
                     <h3 className="text-2xl font-semibold text-gray-800 mb-3">{projectData.stakeholders.consultant.role}</h3>
                     <p className="text-xl font-bold text-blue-700">{projectData.stakeholders.consultant.name}</p>
@@ -213,7 +205,6 @@ const StakeholderSection = () => (
                 </div>
             </div>
 
-            {/* Jüri Üyeleri */}
             <h3 className="text-3xl font-bold text-center text-gray-800 mb-6 border-b border-gray-300 pb-3">Jüri Üyeleri</h3>
             <div className="flex justify-center gap-8 flex-wrap">
                 {projectData.stakeholders.jury.map((member, index) => (
@@ -228,12 +219,8 @@ const StakeholderSection = () => (
 );
 
 
-// 5. Raporlar Sistemi (Gerçek İndirme Fonksiyonu)
-
+// 5. Raporlar Sistemi
 const ReportSection = () => {
-    
-    // NOT: Artık handleDownload fonksiyonuna ihtiyacımız yok, çünkü indirme
-    // işlemi doğrudan HTML <a> etiketi ve "download" özelliği ile yapılacak.
     
     return (
         <section id="raporlar" className="py-16 px-4 md:px-12 bg-gray-50">
@@ -257,25 +244,25 @@ const ReportSection = () => {
                                 <p className="text-sm text-gray-500 mt-1">Yayın Tarihi: {report.date}</p>
                             </div>
                             
-                            {/* <button> yerine <a> etiketi kullanıldı! */}
-                            <a
-                                // Raporda tanımladığımız dosya yolu (örn: /reports/proposal_report.docx)
-                                href={report.filePath} 
-                                
-                                // 'download' özelliği, tarayıcıya dosyayı indirmesini söyler
-                                download 
-                                
-                                // Linkin yeni sekmede açılması için (Opsiyonel ama iyi bir pratik)
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                
-                                // Tailwind stilleri eski buton ile aynı
-                                className="flex items-center space-x-2 px-4 py-2 bg-green-500 text-white font-semibold rounded-full shadow-md hover:bg-green-600 transition duration-300"
-                                aria-label={`${report.title} Word dosyasını indir`}
-                            >
-                                <Download className="w-5 h-5" />
-                                <span>İndir (DOCX)</span>
-                            </a>
+                            {report.filePath ? (
+                                <a
+                                    href={report.filePath} 
+                                    download 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="flex items-center space-x-2 px-4 py-2 bg-green-500 text-white font-semibold rounded-full shadow-md hover:bg-green-600 transition duration-300"
+                                    aria-label={`${report.title} Word dosyasını indir`}
+                                >
+                                    <Download className="w-5 h-5" />
+                                    <span>İndir (DOCX)</span>
+                                </a>
+                            ) : (
+                                <span
+                                    className="flex items-center space-x-2 px-4 py-2 bg-gray-400 text-white font-semibold rounded-full shadow-md cursor-not-allowed"
+                                >
+                                    <span>Yakında</span>
+                                </span>
+                            )}
                         </div>
                     ))}
                 </div>
@@ -331,16 +318,20 @@ const Navbar = () => {
 // --- Ana Uygulama Bileşeni ---
 const App = () => (
     <div className="font-sans antialiased bg-white min-h-screen">
-        {/* React bileşenleri içinde script ve meta etiketleri kullanılmaz, index.html içinde olmalıdır.
-           Bu kodlar, sadece CSS ve font ayarlarını uygulamak için stil etiketine taşınmıştır. 
-        */}
+        
         <style>
             {`
-            /* index.html'den gelen meta viewport ve tailwind script kaldırıldı, 
-               çünkü React bu elementleri desteklemez. */
-            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Lato:wght@400;700&display=swap');
+            
             html { scroll-behavior: smooth; }
-            body { font-family: 'Inter', sans-serif; }
+            
+            body { 
+                font-family: 'Lato', sans-serif; 
+            }
+            
+            h1, h2, h3, h4, h5, h6 { 
+                font-family: 'Montserrat', sans-serif; 
+            }
             `}
         </style>
         
