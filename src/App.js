@@ -20,11 +20,11 @@ const projectData = {
         { name: "Elif Sude Memiş", role: "Yazılım Mühendisi" },
     ],
     mockReports: [
-        { id: 0, title: "Literature Presentation (Literatür Sunumu)", date: "01.10.2024", filePath: "/reports/litrerature_presentation.docx" },
-        { id: 1, title: "Project Proposal (Proje Teklifi)", date: "15.10.2024",filePath: "/reports/Project_Proposal.docx" },
-        { id: 2, title: "Project Specifications Report (Proje Spesifikasyon Raporu)", date: "05.11.2024" }, // Henüz dosya yolu yok
-        { id: 3, title: "Analysis Report (Analiz Raporu)", date: "20.11.2024" }, // Henüz dosya yolu yok
-        { id: 4, title: "High Level Design Report (Üst Düzey Tasarım Raporu)", date: "10.12.2024" }, // Henüz dosya yolu yok
+        { id: 0, title: "Literature Presentation (Literatür Sunumu)", date: "01.10.2025", filePath: "/reports/litrerature_presentation.docx" },
+        { id: 1, title: "Project Proposal (Proje Teklifi)", date: "31.10.2025",filePath: "/reports/Project_Proposal.docx" },
+        { id: 2, title: "Project Specifications Report (Proje Spesifikasyon Raporu)", date: "14.11.2025",filePath: "/reports/Project_Specifications_Report.docx" }, 
+        { id: 3, title: "Analysis Report (Analiz Raporu)", date: "28.11.2025" ,filePath: "/reports/Analysis_Report.docx"}, 
+        { id: 4, title: "High Level Design Report (Üst Düzey Tasarım Raporu)", date: "30.12.2025" }, // Henüz dosya yolu yok
     ],
     stakeholders: {
         coordinator: { name: "Abdulkadir Nazlı", role: "Koordinatör Mühendis" },
