@@ -24,7 +24,9 @@ const projectData = {
         { id: 1, title: "Project Proposal (Proje Teklifi)", date: "31.10.2025",filePath: "/reports/Project_Proposal.docx" },
         { id: 2, title: "Project Specifications Report (Proje Spesifikasyon Raporu)", date: "14.11.2025",filePath: "/reports/Project_Specifications_Report.docx" }, 
         { id: 3, title: "Analysis Report (Analiz Raporu)", date: "28.11.2025" ,filePath: "/reports/Analysis_Report.docx"}, 
-        { id: 4, title: "High Level Design Report (Üst Düzey Tasarım Raporu)", date: "30.12.2025",filePath: "/reports/Highlevel_report.pdf" }, 
+        { id: 4, title: "High Level Design Report (Üst Düzey Tasarım Raporu)", date: "30.12.2025",filePath: "/reports/Highlevel_report.pdf" },
+        { id: 5, title: "Project To-Do List", date: "11.01.2026",filePath: "/reports/TODO.xlsx" },
+        { id: 6, title: "Project Poster", date: "11.01.2026",filePath: "/reports/cmpe 491_Poster.pdf" },
     ],
     stakeholders: {
         coordinator: { name: "Abdulkadir Nazlı", role: "Koordinatör Mühendis" },
@@ -226,11 +228,11 @@ const ReportSection = () => {
         <section id="raporlar" className="py-16 px-4 md:px-12 bg-gray-50">
             <div className="max-w-6xl mx-auto">
                 <h2 className="text-4xl font-bold text-center text-gray-800 mb-10 border-b-4 border-indigo-500 inline-block pb-2">
-                    <FileText className="inline-block mr-2 align-top" /> Proje Raporları
+                    <FileText className="inline-block mr-2 align-top" /> Proje Belgeleri
                 </h2>
                 
                 <p className="text-center text-gray-600 mb-8">
-                    Proje süreci boyunca hazırlanan teknik ve ilerleme raporlarını aşağıda bulabilirsiniz. Raporlar Word formatında (DOCX) indirilmeye hazırdır.
+                    Proje süreci boyunca hazırlanan teknik raporları ve belgeleri aşağıda bulabilirsiniz.
                 </p>
 
                 <div className="space-y-4 max-w-3xl mx-auto">
@@ -254,7 +256,7 @@ const ReportSection = () => {
                                     aria-label={`${report.title} Word dosyasını indir`}
                                 >
                                     <Download className="w-5 h-5" />
-                                    <span>İndir (DOCX)</span>
+                                    <span>İndir</span>
                                 </a>
                             ) : (
                                 <span
