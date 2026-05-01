@@ -27,6 +27,9 @@ const projectData = {
         { id: 4, title: "High Level Design Report (Üst Düzey Tasarım Raporu)", date: "30.12.2025",filePath: "/reports/Highlevel_report.pdf" },
         { id: 5, title: "Project To-Do List", date: "11.01.2026",filePath: "/reports/TODO.xlsx" },
         { id: 6, title: "Project Poster", date: "11.01.2026",filePath: "/reports/cmpe 491_Poster.pdf" },
+        { id: 7, title: "Low Level Design Report", date: "22.03.2026",filePath: "/reports/CMPE492_LowLevelDesignReport.pdf" },
+        { id: 8, title: "Low Level Design Report V2", date: "22.03.2026",filePath: "/reports/CMPE492_LowLevelDesignReport-v2.pdf" },
+        { id: 9, title: "Test Plan", date: "10.04.2026",filePath: "/reports/CMPE492_TestPlan_Report.pdf" },
     ],
     stakeholders: {
         coordinator: { name: "Abdulkadir Nazlı", role: "Koordinatör Mühendis" },
