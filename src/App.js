@@ -19,6 +19,8 @@ const projectData = {
         { name: "Selin Göç", role: "Bilgisayar Mühendisi" },
         { name: "Elif Sude Memiş", role: "Yazılım Mühendisi" },
     ],
+
+    
     mockReports: [
         { id: 0, title: "Literature Presentation (Literatür Sunumu)", date: "01.10.2025", filePath: "/reports/litrerature_presentation.docx" },
         { id: 1, title: "Project Proposal (Proje Teklifi)", date: "31.10.2025",filePath: "/reports/Project_Proposal.docx" },
@@ -31,6 +33,9 @@ const projectData = {
         { id: 8, title: "Low Level Design Report V2", date: "22.03.2026",filePath: "/reports/CMPE492_LowLevelDesignReport-v2.pdf" },
         { id: 9, title: "Test Plan", date: "10.04.2026",filePath: "/reports/CMPE492_TestPlan_Report.pdf" },
     ],
+
+
+
     stakeholders: {
         coordinator: { name: "Abdulkadir Nazlı", role: "Koordinatör Mühendis" },
         consultant: { name: "Hakkı Gökhan İlk", role: "Danışman Hoca" },
