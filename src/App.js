@@ -1,14 +1,21 @@
 import { useState, useEffect } from 'react';
 
-// 'Anchor' sembolü import listesinden kaldırıldı
-import { Users, FileText, TrendingUp, Download, Link, Play, Scale } from 'lucide-react';
+// İKONLAR
+import { Users, FileText, TrendingUp, Download, Link, Play, Scale, Camera, Cpu, Code, Activity, Settings, Layers, Monitor } from 'lucide-react';
 
 import './index.css';
 import mainManuImage from './images/main_manu3.jpg';
 
+import prototipImg from './images/prototip.png';
+import arayuzImg from './images/arayuz.png';
+import gbyfImg from './images/gbyf.png';
+
+// YENİ LOGOLAR İÇE AKTARILDI
+import tusasLogo from './images/tusas.png';
+import teduLogo from './images/tedu.png';
+
 
 // --- Sabit Veriler ---
-
 const projectData = {
     groupName: "CODENGE",
     tagline: "Hava Aracı Ağırlık Merkezi Hesaplama ve Otomatik Dengeleme Sistemi",
@@ -31,6 +38,7 @@ const projectData = {
         { id: 7, title: "Low Level Design Report", date: "22.03.2026",filePath: "/reports/CMPE492_LowLevelDesignReport.pdf" },
         { id: 8, title: "Low Level Design Report V2", date: "22.03.2026",filePath: "/reports/CMPE492_LowLevelDesignReport-v2.pdf" },
         { id: 9, title: "Test Plan", date: "10.04.2026",filePath: "/reports/CMPE492_TestPlan_Report.pdf" },
+        { id: 10, title: "Final Report", date: "10.05.2026",filePath: "/reports/CMPE492_Final_Report.pdf" },
     ],
 
     stakeholders: {
@@ -47,7 +55,6 @@ const projectData = {
 
 // --- Bileşenler ---
 
-
 // 1. Ana Sayfa (HeroSection)
 const HeroSection = () => {
     const [isVideoVisible, setIsVideoVisible] = useState(false);
@@ -57,31 +64,16 @@ const HeroSection = () => {
     };
 
     return (
-        <div 
-            id="anasayfa" 
-            className="relative h-[90vh] flex flex-col items-center justify-center text-white overflow-hidden bg-cover bg-center"
-            style={{ backgroundImage: `url(${mainManuImage})` }} 
-        >
+        <div id="anasayfa" className="relative h-[90vh] flex flex-col items-center justify-center text-white overflow-hidden bg-cover bg-center" style={{ backgroundImage: `url(${mainManuImage})` }}>
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/80 to-blue-900/80 opacity-90"></div>
             
             <div className="relative z-10 text-center px-4 md:px-8 max-w-4xl mx-auto">
-                <h1 className="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight">
-                    {projectData.groupName}
-                </h1>
-                
-                {/* Önceki istek üzerine 'text-blue-300' 'text-white' yapıldı */}
-                <p className="text-xl md:text-3xl font-light mb-6 text-white">
-                    {projectData.tagline}
-                </p>
-                
-                <span className="inline-block px-4 py-2 bg-yellow-500 text-gray-900 font-bold rounded-full shadow-lg">
-                    {projectData.program} Projesi
-                </span>
+                <h1 className="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight">{projectData.groupName}</h1>
+                <p className="text-xl md:text-3xl font-light mb-6 text-white">{projectData.tagline}</p>
+                <span className="inline-block px-4 py-2 bg-yellow-500 text-gray-900 font-bold rounded-full shadow-lg">{projectData.program} Projesi</span>
 
                 <div 
-                    className={`mt-10 max-w-full mx-auto transition-all duration-500 ease-in-out transform ${
-                        isVideoVisible ? 'opacity-100 scale-100 h-auto' : 'opacity-0 scale-95 h-0 pointer-events-none'
-                    }`}
+                    className={`mt-10 max-w-full mx-auto transition-all duration-500 ease-in-out transform ${isVideoVisible ? 'opacity-100 scale-100 h-auto' : 'opacity-0 scale-95 h-0 pointer-events-none'}`}
                     style={{ height: isVideoVisible ? '50vh' : '0', overflow: 'hidden' }}
                 >
                     <div className="relative w-full h-full bg-black rounded-xl shadow-2xl border-4 border-white/30">
@@ -97,45 +89,60 @@ const HeroSection = () => {
                 </div>
             </div>
 
-            <button
-                onClick={handleToggleVideo}
-                className="fixed bottom-8 left-8 z-50 inline-flex items-center space-x-3 px-6 py-3 bg-pink-600 text-white font-bold rounded-full shadow-xl hover:bg-pink-700 transition duration-300 transform hover:scale-105 animate-bounce"
-            >
+            <button onClick={handleToggleVideo} className="fixed bottom-8 left-8 z-50 inline-flex items-center space-x-3 px-6 py-3 bg-pink-600 text-white font-bold rounded-full shadow-xl hover:bg-pink-700 transition duration-300 transform hover:scale-105 animate-bounce">
                 <Play className="w-6 h-6" />
                 <span>{isVideoVisible ? 'Eğitici Videoyu Kapat' : 'Konuyla İlgili Eğitici Videoyu İzle'}</span>
             </button>
-
-            <style>{`
-                @keyframes bounce {
-                    0%, 100% {
-                        transform: translateY(-25%);
-                        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-                    }
-                    50% {
-                        transform: translateY(0);
-                        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-                    }
-                }
-                .animate-bounce {
-                    animation: bounce 1s infinite;
-                }
-            `}</style>
         </div>
     );
 };
 
+// 2. Kurumlar Şeridi (Trust Badges) - LOGOLAR EKLENDİ
+const TrustBadgeSection = () => (
+    <div className="bg-gray-100 border-b border-gray-200 py-8">
+        <div className="max-w-6xl mx-auto px-4">
+            <p className="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">
+                Destekleyen Kurumlar
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-70 grayscale hover:grayscale-0 transition duration-500">
+                
+                {/* TUSAŞ LIFT-UP BLOK */}
+                <div className="flex items-center gap-4 cursor-default hover:scale-105 transition transform">
+                    <img src={tusasLogo} alt="TUSAŞ Logo" className="h-12 w-auto object-contain" />
+                    <div className="text-3xl font-black text-[#003B71] tracking-tighter flex items-center gap-2">
+                        <span className="bg-[#003B71] text-white px-2 py-1 rounded-md text-xl">TUSAŞ</span> LIFT-UP
+                    </div>
+                </div>
+                
+                <div className="w-1 h-12 bg-gray-300 rounded-full hidden md:block"></div> {/* Ayırıcı Dikey Çizgi */}
+                
+                {/* TED ÜNİVERSİTESİ BLOK */}
+                <div className="flex items-center gap-4 cursor-default hover:scale-105 transition transform">
+                    <img src={teduLogo} alt="TED Üniversitesi Logo" className="h-12 w-auto object-contain" />
+                    <div className="text-3xl font-black text-[#E31837] tracking-tighter flex items-center gap-2">
+                        TED <span className="font-light">ÜNİVERSİTESİ</span>
+                    </div>
+                </div>
 
-// 2. Proje Açıklaması
+            </div>
+        </div>
+    </div>
+);
+
+
+// 3. Proje Açıklaması
 const DescriptionSection = () => (
     <section id="aciklama" className="py-16 px-4 md:px-12 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-center text-gray-800 mb-10 border-b-4 border-indigo-500 inline-block pb-2">
-                Proje Detayı: Ağırlık Merkezi (AGM) Kontrolü
-            </h2>
+            <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-gray-800 flex items-center justify-center gap-3">
+                    Proje Detayı: Ağırlık Merkezi (AGM) Kontrolü
+                </h2>
+                <div className="w-24 h-1.5 bg-indigo-600 rounded-full mx-auto mt-5"></div>
+            </div>
 
-            {/* --- YENİ DEĞİŞİKLİK BURADA: 'italic' ve 'font-medium' kaldırıldı --- */}
             <p className="text-lg text-gray-700 mb-10 leading-relaxed text-center">
-                Hava araçlarının tasarımında kritik bir parametre olan Ağırlık Merkezi (AGM), uçuş emniyetini, aerodinamik performansı ve yakıt verimliliğini doğrudan belirler. <span className="text-indigo-600 font-bold">CODENGE</span> projesi olarak, küçük ve büyük ölçekli hava platformlarında bu hayati dengeyi anlık olarak ölçmek ve sapmaları sıfırlamak üzere tasarlanmış tam otomatik bir dengeleme sistemi geliştirilecektir. Bu, havacılıkta operasyonel güvenilirliği artırmayı amaçlayan yenilikçi bir yaklaşımdır.
+                Hava araçlarının tasarımında kritik bir parametre olan Ağırlık Merkezi (AGM), uçuş emniyetini, aerodinamik performansı ve yakıt verimliliğini doğrudan belirler. <span className="text-indigo-600 font-bold">codenGe</span> projesi olarak, küçük ve büyük ölçekli hava platformlarında bu hayati dengeyi anlık olarak ölçmek ve sapmaları sıfırlamak üzere tasarlanmış tam otomatik bir dengeleme sistemi geliştirilecektir. Bu, havacılıkta operasyonel güvenilirliği artırmayı amaçlayan yenilikçi bir yaklaşımdır.
             </p>
 
             <div className="grid md:grid-cols-2 gap-10">
@@ -155,7 +162,7 @@ const DescriptionSection = () => (
                     <p className="text-gray-600 mb-4 leading-relaxed">
                         Kargo yükleme/boşaltma, yakıt tüketimi veya görev yükü değişimleri gibi operasyonel faktörler nedeniyle AGM'de meydana gelen sapmalarda, sistemimiz dengeyi <span className="font-semibold text-green-700">otonom olarak</span> sağlar.
                         <br/><br/>
-                        Dengeleme, hava aracının boylamasına ve enlemesine düzlemlerde hareket edebilen, <span className="font-semibold text-green-700">servo motorlar ile kontrol edilen akıllı bir karşı ağırlık sistemi</span> kullanılarak gerçekleştirilir. Bu hareketli kütle, hesaplanan optimum AGM noktasına ulaşmak için gereken mesafeye milimetrik hassasiyetle komut alarak hareket eder.
+                        Dengeleme, hava aracının boylamasına ve enlemesine düzlemlerde hareket edebilen, <span className="font-semibold text-green-700">step motorlar ile kontrol edilen akıllı bir karşı ağırlık sistemi</span> kullanılarak gerçekleştirilir. Bu hareketli kütle, hesaplanan optimum AGM noktasına ulaşmak için gereken mesafeye milimetrik hassasiyetle komut alarak hareket eder.
                     </p>
                     <p className="mt-4 text-sm font-semibold text-indigo-700 p-3 bg-indigo-100 rounded-lg">
                         Bu yöntem ileri safhalarda spesifik tekniklerle geliştirilip optimize edilecektir.
@@ -167,13 +174,107 @@ const DescriptionSection = () => (
 );
 
 
-// 3. Grup Üyeleri
+// 4. Kullanılan Teknolojiler (Tech Stack) Şeridi 
+const TechStackSection = () => (
+    <section className="py-12 bg-indigo-900 text-white">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+            <h3 className="text-2xl font-bold mb-8 text-indigo-200 tracking-wide uppercase text-sm">Projede Kullanılan Temel Teknolojiler</h3>
+            
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+                <div className="flex items-center gap-2 bg-indigo-800/80 px-5 py-3 rounded-full shadow-lg border border-indigo-700 hover:bg-indigo-700 transition cursor-default">
+                    <Cpu className="text-blue-400 w-5 h-5" /> <span className="font-medium">C/C++ & Gömülü Sistemler</span>
+                </div>
+                <div className="flex items-center gap-2 bg-indigo-800/80 px-5 py-3 rounded-full shadow-lg border border-indigo-700 hover:bg-indigo-700 transition cursor-default">
+                    <Monitor className="text-cyan-400 w-5 h-5" /> <span className="font-medium">Python (Arayüz / UI)</span>
+                </div>
+                <div className="flex items-center gap-2 bg-indigo-800/80 px-5 py-3 rounded-full shadow-lg border border-indigo-700 hover:bg-indigo-700 transition cursor-default">
+                    <Code className="text-pink-400 w-5 h-5" /> <span className="font-medium">React.js & Web</span>
+                </div>
+                <div className="flex items-center gap-2 bg-indigo-800/80 px-5 py-3 rounded-full shadow-lg border border-indigo-700 hover:bg-indigo-700 transition cursor-default">
+                    <Activity className="text-green-400 w-5 h-5" /> <span className="font-medium">Loadcell & Sensör Ağları</span>
+                </div>
+                <div className="flex items-center gap-2 bg-indigo-800/80 px-5 py-3 rounded-full shadow-lg border border-indigo-700 hover:bg-indigo-700 transition cursor-default">
+                    <Settings className="text-yellow-400 w-5 h-5" /> <span className="font-medium">Step Motor Kontrolü</span>
+                </div>
+                <div className="flex items-center gap-2 bg-indigo-800/80 px-5 py-3 rounded-full shadow-lg border border-indigo-700 hover:bg-indigo-700 transition cursor-default">
+                    <Layers className="text-purple-400 w-5 h-5" /> <span className="font-medium">3D Modelleme & Baskı</span>
+                </div>
+            </div>
+        </div>
+    </section>
+);
+
+
+// 5. Proje Galerisi
+const GallerySection = () => (
+    <section id="galeri" className="py-16 px-4 md:px-12 bg-white">
+        <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-gray-800 flex items-center justify-center gap-3">
+                    <Camera className="text-indigo-600 w-10 h-10" /> Proje Galerisi
+                </h2>
+                <div className="w-24 h-1.5 bg-indigo-600 rounded-full mx-auto mt-5"></div>
+            </div>
+            
+            <div className="grid lg:grid-cols-3 gap-8">
+                <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 flex flex-col group">
+                    <div className="h-64 overflow-hidden bg-black flex items-center justify-center">
+                        <img src={prototipImg} alt="Sistem Prototipi" className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" />
+                    </div>
+                    <div className="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 className="text-xl font-bold text-gray-800 mb-3 border-b border-gray-200 pb-2">Sistem Prototipi</h3>
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                                Özel olarak tasarladığımız tandem rotorlu helikopter modelimiz. Sistemin genel işleyişini yansıtan bu prototipte; sensörlerle ölçülen ağırlık verilerine göre otonom dengeleme sağlayan step motorlar, vidalı mil ve hareketli karşı kütle mekanizması yer almaktadır.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 flex flex-col group">
+                    <div className="h-64 overflow-hidden bg-[#0d131f] flex items-center justify-center border-b border-gray-200">
+                        <img src={arayuzImg} alt="Kullanıcı Arayüzü" className="w-full h-full object-contain transform group-hover:scale-105 transition duration-500 p-2" />
+                    </div>
+                    <div className="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 className="text-xl font-bold text-gray-800 mb-3 border-b border-gray-200 pb-2">Kullanıcı Arayüzü (UI)</h3>
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                                Geliştirdiğimiz kontrol paneli arayüzü. Bu panel üzerinden, hava aracının ağırlık merkezi koordinatları, optimum noktadan milimetrik sapma miktarı ve sistemin anlık dengeleme durumu canlı olarak takip edilebilmektedir.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 flex flex-col group">
+                    <div className="h-64 overflow-hidden bg-black flex items-center justify-center">
+                        <img src={gbyfImg} alt="GBYF Başarısı" className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" />
+                    </div>
+                    <div className="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 className="text-xl font-bold text-gray-800 mb-3 border-b border-gray-200 pb-2">GBYF Yarışması Başarısı</h3>
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                                Projemizle katıldığımız Genç Beyinler Yeni Fikirler (GBYF) yarışmasında finale kalarak yüzlerce proje arasından <span className="font-bold text-green-600">ilk 5'e girme</span> başarısı gösterdik. Görselde ekibimiz ve danışman hocamızla fuar alanındaki standımız yer almaktadır.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+);
+
+
+// 6. Grup Üyeleri
 const TeamSection = () => (
     <section id="ekip" className="py-16 px-4 md:px-12 bg-gray-900 text-white">
         <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-center text-white mb-10 border-b-4 border-blue-500 inline-block pb-2">
-                <Users className="inline-block mr-2 align-top" /> Grup Üyeleri
-            </h2>
+            <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-white flex items-center justify-center gap-3">
+                    <Users className="text-blue-500 w-10 h-10" /> Grup Üyeleri
+                </h2>
+                <div className="w-24 h-1.5 bg-blue-500 rounded-full mx-auto mt-5"></div>
+            </div>
+
             <div className="grid md:grid-cols-4 gap-8">
                 {projectData.members.map((member, index) => (
                     <div key={index} className="text-center p-6 bg-gray-800 rounded-xl shadow-lg border-t-4 border-indigo-600 transform hover:scale-[1.03] transition duration-300">
@@ -190,13 +291,16 @@ const TeamSection = () => (
 );
 
 
-// 4. Paydaşlar ve İletişim Bilgileri
+// 7. Paydaşlar ve İletişim Bilgileri
 const StakeholderSection = () => (
     <section id="paydaslar" className="py-16 px-4 md:px-12 bg-white">
         <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-center text-gray-800 mb-10 border-b-4 border-indigo-500 inline-block pb-2">
-                <Link className="inline-block mr-2 align-top" /> Paydaşlar ve Yönetim
-            </h2>
+            <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-gray-800 flex items-center justify-center gap-3">
+                    <Link className="text-indigo-600 w-10 h-10" /> Paydaşlar ve Yönetim
+                </h2>
+                <div className="w-24 h-1.5 bg-indigo-600 rounded-full mx-auto mt-5"></div>
+            </div>
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
                 <div className="p-6 bg-indigo-50 rounded-xl shadow-lg border-l-4 border-indigo-600">
@@ -212,7 +316,11 @@ const StakeholderSection = () => (
                 </div>
             </div>
 
-            <h3 className="text-3xl font-bold text-center text-gray-800 mb-6 border-b border-gray-300 pb-3">Jüri Üyeleri</h3>
+            <div className="text-center mb-8 mt-16">
+                <h3 className="text-3xl font-bold text-gray-800">Jüri Üyeleri</h3>
+                <div className="w-16 h-1 bg-gray-300 rounded-full mx-auto mt-4"></div>
+            </div>
+
             <div className="flex justify-center gap-8 flex-wrap">
                 {projectData.stakeholders.jury.map((member, index) => (
                     <div key={index} className="w-full sm:w-60 p-5 bg-gray-100 rounded-lg shadow-md text-center transform hover:scale-[1.02] transition duration-200">
@@ -226,15 +334,17 @@ const StakeholderSection = () => (
 );
 
 
-// 5. Raporlar Sistemi
+// 8. Raporlar Sistemi
 const ReportSection = () => {
-    
     return (
         <section id="raporlar" className="py-16 px-4 md:px-12 bg-gray-50">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-4xl font-bold text-center text-gray-800 mb-10 border-b-4 border-indigo-500 inline-block pb-2">
-                    <FileText className="inline-block mr-2 align-top" /> Proje Belgeleri
-                </h2>
+                <div className="text-center mb-12">
+                    <h2 className="text-4xl font-bold text-gray-800 flex items-center justify-center gap-3">
+                        <FileText className="text-indigo-600 w-10 h-10" /> Proje Belgeleri
+                    </h2>
+                    <div className="w-24 h-1.5 bg-indigo-600 rounded-full mx-auto mt-5"></div>
+                </div>
                 
                 <p className="text-center text-gray-600 mb-8">
                     Proje süreci boyunca hazırlanan teknik raporları ve belgeleri aşağıda bulabilirsiniz.
@@ -258,7 +368,7 @@ const ReportSection = () => {
                                     target="_blank" 
                                     rel="noopener noreferrer" 
                                     className="flex items-center space-x-2 px-4 py-2 bg-green-500 text-white font-semibold rounded-full shadow-md hover:bg-green-600 transition duration-300"
-                                    aria-label={`${report.title} Word dosyasını indir`}
+                                    aria-label={`${report.title} dosyasını indir`}
                                 >
                                     <Download className="w-5 h-5" />
                                     <span>İndir</span>
@@ -279,7 +389,7 @@ const ReportSection = () => {
 };
 
 
-// 6. Navigasyon Çubuğu
+// 9. Navigasyon Çubuğu
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -294,6 +404,7 @@ const Navbar = () => {
     const navItems = [
         { name: "Ana Sayfa", href: "#anasayfa" },
         { name: "Açıklama", href: "#aciklama" },
+        { name: "Galeri", href: "#galeri" },
         { name: "Ekip", href: "#ekip" },
         { name: "Paydaşlar", href: "#paydaslar" }, 
         { name: "Raporlar", href: "#raporlar" },
@@ -323,42 +434,56 @@ const Navbar = () => {
 
 
 // --- Ana Uygulama Bileşeni ---
-const App = () => (
-    <div className="font-sans antialiased bg-white min-h-screen">
-        
-        <style>
-            {`
-            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Lato:wght@400;700&display=swap');
+const App = () => {
+    
+    return (
+        <div className="font-sans antialiased bg-white min-h-screen">
             
-            html { scroll-behavior: smooth; }
+            <style>
+                {`
+                @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Lato:wght@400;700&display=swap');
+                
+                html { scroll-behavior: smooth; }
+                
+                body { 
+                    font-family: 'Lato', sans-serif; 
+                }
+                
+                h1, h2, h3, h4, h5, h6 { 
+                    font-family: 'Montserrat', sans-serif; 
+                }
+                
+                @keyframes bounce {
+                    0%, 100% { transform: translateY(-25%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+                    50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+                }
+                .animate-bounce { animation: bounce 1s infinite; }
+                `}
+            </style>
             
-            body { 
-                font-family: 'Lato', sans-serif; 
-            }
+            <Navbar />
+            <main>
+                <HeroSection />
+                <TrustBadgeSection />
+                <DescriptionSection />
+                <TechStackSection />
+                <GallerySection />
+                <TeamSection />
+                <StakeholderSection /> 
+                <ReportSection />
+            </main>
             
-            h1, h2, h3, h4, h5, h6 { 
-                font-family: 'Montserrat', sans-serif; 
-            }
-            `}
-        </style>
-        
-        <Navbar />
-        <main>
-            <HeroSection />
-            <DescriptionSection />
-            <TeamSection />
-            <StakeholderSection /> 
-            <ReportSection />
-        </main>
-        
-        {/* Footer */}
-        <footer className="bg-gray-800 text-white py-6 text-center text-sm border-t border-blue-700">
-            <div className="max-w-6xl mx-auto">
-                © {new Date().getFullYear()} {projectData.groupName} | {projectData.program} Projesi
-            </div>
-        </footer>
-    </div>
-);
-
+            {/* Footer */}
+            <footer className="bg-gray-800 text-white py-6 text-center border-t border-blue-700 flex flex-col items-center justify-center">
+                <div className="max-w-6xl mx-auto text-sm mb-2">
+                    © {new Date().getFullYear()} {projectData.groupName} | {projectData.program} Projesi
+                </div>
+                <div className="text-xs text-gray-400 font-light tracking-wide">
+                    Created by Yasin Anber
+                </div>
+            </footer>
+        </div>
+    );
+};
 
 export default App;
