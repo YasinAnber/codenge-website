@@ -13,7 +13,8 @@ import gbyfImg from './images/gbyf.png';
 // YENİ LOGOLAR İÇE AKTARILDI
 import tusasLogo from './images/tusas.png';
 import teduLogo from './images/tedu.png';
-
+import sideRightImg from './images/side_right.png';
+import sideLeftImg from './images/side_left.png';
 
 // --- Sabit Veriler ---
 const projectData = {
@@ -43,7 +44,7 @@ const projectData = {
 
     stakeholders: {
         coordinator: { name: "Abdulkadir Nazlı", role: "Koordinatör Mühendis" },
-        consultant: { name: "Hakkı Gökhan İlk", role: "Danışman Hoca" },
+        consultant: { name: "Prof. Dr. Hakkı Gökhan İlk", role: "Danışman Hoca" },
         jury: [
             { name: "Ayşe Yasmin Seydim", role: "Jüri Üyesi" },
             { name: "Ali Berkol", role: "Jüri Üyesi" },
@@ -89,7 +90,7 @@ const HeroSection = () => {
                 </div>
             </div>
 
-            <button onClick={handleToggleVideo} className="fixed bottom-8 left-8 z-50 inline-flex items-center space-x-3 px-6 py-3 bg-pink-600 text-white font-bold rounded-full shadow-xl hover:bg-pink-700 transition duration-300 transform hover:scale-105 animate-bounce">
+            <button onClick={handleToggleVideo} className="fixed bottom-8 left-8 z-50 inline-flex items-center space-x-3 px-6 py-3 bg-pink-900 text-white font-bold rounded-full shadow-xl hover:bg-pink-700 transition duration-300 transform hover:scale-105 animate-bounce">
                 <Play className="w-6 h-6" />
                 <span>{isVideoVisible ? 'Eğitici Videoyu Kapat' : 'Konuyla İlgili Eğitici Videoyu İzle'}</span>
             </button>
@@ -130,73 +131,90 @@ const TrustBadgeSection = () => (
 );
 
 
-// 3. Proje Açıklaması
+// 3. Proje Açıklaması (Görseller tam kenara yaslı)
 const DescriptionSection = () => (
-    <section id="aciklama" className="py-16 px-4 md:px-12 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold text-gray-800 flex items-center justify-center gap-3">
-                    Proje Detayı: Ağırlık Merkezi (AGM) Kontrolü
-                </h2>
-                <div className="w-24 h-1.5 bg-indigo-600 rounded-full mx-auto mt-5"></div>
+    <section id="aciklama" className="bg-gray-50">
+        {/* w-full: Tam genişlik, flex-row: Yan yana dizilim */}
+        <div className="w-full flex flex-col lg:flex-row items-stretch">
+            
+            {/* SOL GÖRSEL - Tam kenara yapışık */}
+            <div className="hidden lg:block lg:w-1/5">
+                <img 
+                    src={sideLeftImg} 
+                    alt="Left" 
+                    className="w-full h-full object-cover" 
+                />
             </div>
 
-            <p className="text-lg text-gray-700 mb-10 leading-relaxed text-center">
-                Hava araçlarının tasarımında kritik bir parametre olan Ağırlık Merkezi (AGM), uçuş emniyetini, aerodinamik performansı ve yakıt verimliliğini doğrudan belirler. <span className="text-indigo-600 font-bold">codenGe</span> projesi olarak, küçük ve büyük ölçekli hava platformlarında bu hayati dengeyi anlık olarak ölçmek ve sapmaları sıfırlamak üzere tasarlanmış tam otomatik bir dengeleme sistemi geliştirilecektir. Bu, havacılıkta operasyonel güvenilirliği artırmayı amaçlayan yenilikçi bir yaklaşımdır.
-            </p>
+            {/* ORTA METİN ALANI - Okunabilirlik için kısıtlı genişlik */}
+            <div className="lg:w-3/5 py-16 px-4 md:px-12 flex flex-col justify-center">
+                <div className="max-w-4xl mx-auto">
+                    <div className="text-center mb-12">
+                        <h2 className="text-4xl font-bold text-gray-800 flex items-center justify-center gap-3">
+                            Proje Detayı: Ağırlık Merkezi (AGM) Kontrolü
+                        </h2>
+                        <div className="w-24 h-1.5 bg-indigo-600 rounded-full mx-auto mt-5"></div>
+                    </div>
 
-            <div className="grid md:grid-cols-2 gap-10">
-                <div className="p-8 bg-white rounded-xl shadow-xl transition duration-300 hover:shadow-2xl border-t-4 border-indigo-500">
-                    <TrendingUp className="text-indigo-500 w-10 h-10 mb-4" />
-                    <h3 className="text-2xl font-bold text-gray-800 mb-3">Yüksek Hassasiyetli AGM Hesaplama ve Görselleştirme</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                        Hava aracı yerdeyken, her bir iniş takımı altına konumlandırılan <span className="font-semibold text-gray-800">üç (3) adet yüksek hassasiyetli loadcell</span> aracılığıyla ağırlık verileri anlık olarak toplanır.
-                        <br/><br/>
-                        Bu veriler, hava aracının <span className="font-semibold text-gray-800">X ve Y eksenlerindeki</span> hassas ağırlık merkezi koordinatlarını hesaplamak için kullanılır. Geliştirdiğimiz C/C++ tabanlı gömülü yazılım ve kullanıcı dostu arayüz sayesinde, anlık AGM konumu görselleştirilir ve önceden tanımlanmış <span className="font-semibold text-green-700">optimum denge noktası</span> ile mevcut sapma net bir şekilde gösterilir.
+                    <p className="text-lg text-gray-700 mb-10 leading-relaxed text-center px-4">
+                        Hava araçlarının tasarımında kritik bir parametre olan Ağırlık Merkezi (AGM), uçuş emniyetini, aerodinamik performansı ve yakıt verimliliğini doğrudan belirler. <span className="text-indigo-600 font-bold">codenGe</span> projesi olarak, küçük ve büyük ölçekli hava platformlarında bu hayati dengeyi anlık olarak ölçmek ve sapmaları sıfırlamak üzere tasarlanmış tam otomatik bir dengeleme sistemi geliştirilecektir. Bu, havacılıkta operasyonel güvenilirliği artırmayı amaçlayan yenilikçi bir yaklaşımdır.
                     </p>
-                </div>
 
-                <div className="p-8 bg-white rounded-xl shadow-xl transition duration-300 hover:shadow-2xl border-t-4 border-green-500">
-                    <Scale className="text-green-500 w-10 h-10 mb-4" /> 
-                    <h3 className="text-2xl font-bold text-gray-800 mb-3">Dinamik ve Otomatik Ağırlık Dengeleme Mekanizması</h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                        Kargo yükleme/boşaltma, yakıt tüketimi veya görev yükü değişimleri gibi operasyonel faktörler nedeniyle AGM'de meydana gelen sapmalarda, sistemimiz dengeyi <span className="font-semibold text-green-700">otonom olarak</span> sağlar.
-                        <br/><br/>
-                        Dengeleme, hava aracının boylamasına ve enlemesine düzlemlerde hareket edebilen, <span className="font-semibold text-green-700">step motorlar ile kontrol edilen akıllı bir karşı ağırlık sistemi</span> kullanılarak gerçekleştirilir. Bu hareketli kütle, hesaplanan optimum AGM noktasına ulaşmak için gereken mesafeye milimetrik hassasiyetle komut alarak hareket eder.
-                    </p>
-                    <p className="mt-4 text-sm font-semibold text-indigo-700 p-3 bg-indigo-100 rounded-lg">
-                        Bu yöntem ileri safhalarda spesifik tekniklerle geliştirilip optimize edilecektir.
-                    </p>
+                    <div className="grid md:grid-cols-2 gap-10">
+                        <div className="p-8 bg-white rounded-xl shadow-xl transition duration-300 hover:shadow-2xl border-t-4 border-blue-500">
+                            <TrendingUp className="text-blue-500 w-10 h-10 mb-4" />
+                            <h3 className="text-2xl font-bold text-gray-800 mb-3">Yüksek Hassasiyetli AGM Hesaplama</h3>
+                            <p className="text-gray-600 leading-relaxed">
+                                Hava aracı yerdeyken, her bir iniş takımı altına konumlandırılan <span className="font-semibold text-gray-800">üç (3) adet yüksek hassasiyetli loadcell</span> aracılığıyla ağırlık verileri anlık olarak toplanır.
+                            </p>
+                        </div>
+
+                        <div className="p-8 bg-white rounded-xl shadow-xl transition duration-300 hover:shadow-2xl border-t-4 border-blue-500">
+                            <Scale className="text-blue-500 w-10 h-10 mb-4" /> 
+                            <h3 className="text-2xl font-bold text-gray-800 mb-3">Otonom Dengeleme Sistemi</h3>
+                            <p className="text-gray-600 mb-4 leading-relaxed">
+                                Dengeleme, hava aracının boylamasına ve enlemesine düzlemlerde hareket edebilen, <span className="font-semibold text-green-700">step motorlar ile kontrol edilen akıllı bir karşı ağırlık sistemi</span> kullanılarak gerçekleştirilir.
+                            </p>
+                        </div>
+                    </div>
                 </div>
+            </div>
+
+            {/* SAĞ GÖRSEL - Tam kenara yapışık */}
+            <div className="hidden lg:block lg:w-1/5">
+                <img 
+                    src={sideRightImg} 
+                    alt="Right" 
+                    className="w-full h-full object-cover" 
+                />
             </div>
         </div>
     </section>
 );
 
-
-// 4. Kullanılan Teknolojiler (Tech Stack) Şeridi 
+// 4. Kullanılan Teknolojiler (Tech Stack) Şeridi - RENGİ GÜNCELLENDİ
 const TechStackSection = () => (
-    <section className="py-12 bg-indigo-900 text-white">
+    <section className="py-12 bg-indigo-950 text-white">
         <div className="max-w-6xl mx-auto px-4 text-center">
             <h3 className="text-2xl font-bold mb-8 text-indigo-200 tracking-wide uppercase text-sm">Projede Kullanılan Temel Teknolojiler</h3>
             
             <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-                <div className="flex items-center gap-2 bg-indigo-800/80 px-5 py-3 rounded-full shadow-lg border border-indigo-700 hover:bg-indigo-700 transition cursor-default">
+                <div className="flex items-center gap-2 bg-indigo-900 px-5 py-3 rounded-full shadow-lg border border-indigo-800 hover:bg-indigo-800 transition cursor-default">
                     <Cpu className="text-blue-400 w-5 h-5" /> <span className="font-medium">C/C++ & Gömülü Sistemler</span>
                 </div>
-                <div className="flex items-center gap-2 bg-indigo-800/80 px-5 py-3 rounded-full shadow-lg border border-indigo-700 hover:bg-indigo-700 transition cursor-default">
+                <div className="flex items-center gap-2 bg-indigo-900 px-5 py-3 rounded-full shadow-lg border border-indigo-800 hover:bg-indigo-800 transition cursor-default">
                     <Monitor className="text-cyan-400 w-5 h-5" /> <span className="font-medium">Python (Arayüz / UI)</span>
                 </div>
-                <div className="flex items-center gap-2 bg-indigo-800/80 px-5 py-3 rounded-full shadow-lg border border-indigo-700 hover:bg-indigo-700 transition cursor-default">
+                <div className="flex items-center gap-2 bg-indigo-900 px-5 py-3 rounded-full shadow-lg border border-indigo-800 hover:bg-indigo-800 transition cursor-default">
                     <Code className="text-pink-400 w-5 h-5" /> <span className="font-medium">React.js & Web</span>
                 </div>
-                <div className="flex items-center gap-2 bg-indigo-800/80 px-5 py-3 rounded-full shadow-lg border border-indigo-700 hover:bg-indigo-700 transition cursor-default">
+                <div className="flex items-center gap-2 bg-indigo-900 px-5 py-3 rounded-full shadow-lg border border-indigo-800 hover:bg-indigo-800 transition cursor-default">
                     <Activity className="text-green-400 w-5 h-5" /> <span className="font-medium">Loadcell & Sensör Ağları</span>
                 </div>
-                <div className="flex items-center gap-2 bg-indigo-800/80 px-5 py-3 rounded-full shadow-lg border border-indigo-700 hover:bg-indigo-700 transition cursor-default">
+                <div className="flex items-center gap-2 bg-indigo-900 px-5 py-3 rounded-full shadow-lg border border-indigo-800 hover:bg-indigo-800 transition cursor-default">
                     <Settings className="text-yellow-400 w-5 h-5" /> <span className="font-medium">Step Motor Kontrolü</span>
                 </div>
-                <div className="flex items-center gap-2 bg-indigo-800/80 px-5 py-3 rounded-full shadow-lg border border-indigo-700 hover:bg-indigo-700 transition cursor-default">
+                <div className="flex items-center gap-2 bg-indigo-900 px-5 py-3 rounded-full shadow-lg border border-indigo-800 hover:bg-indigo-800 transition cursor-default">
                     <Layers className="text-purple-400 w-5 h-5" /> <span className="font-medium">3D Modelleme & Baskı</span>
                 </div>
             </div>
@@ -253,7 +271,7 @@ const GallerySection = () => (
                         <div>
                             <h3 className="text-xl font-bold text-gray-800 mb-3 border-b border-gray-200 pb-2">GBYF Yarışması Başarısı</h3>
                             <p className="text-gray-600 text-sm leading-relaxed">
-                                Projemizle katıldığımız Genç Beyinler Yeni Fikirler (GBYF) yarışmasında finale kalarak yüzlerce proje arasından <span className="font-bold text-green-600">ilk 5'e girme</span> başarısı gösterdik. Görselde ekibimiz ve danışman hocamızla fuar alanındaki standımız yer almaktadır.
+                                Projemizle katıldığımız Genç Beyinler Yeni Fikirler (GBYF) yarışmasında finale kalarak yüzlerce proje arasından <span className="font-bold text-blue-600">ilk 5'e girme</span> başarısı gösterdik. Görselde ekibimiz ve danışman hocamızla fuar alanındaki standımız yer almaktadır.
                             </p>
                         </div>
                     </div>
