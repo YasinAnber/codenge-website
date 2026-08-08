@@ -538,7 +538,7 @@ const ReportSection = () => {
 };
 
 
-// 9. Navigasyon Çubuğu
+// 9. Navigasyon Çubuğu (Kenarlara Tam Yaslı)
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -562,11 +562,12 @@ const Navbar = () => {
 
     return (
         <header className={`sticky top-0 z-50 transition duration-300 ${isScrolled ? 'bg-gray-900/95 shadow-2xl backdrop-blur-sm' : 'bg-transparent'}`}>
-            <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            {/* max-w-7xl kaldırılarak w-full yapıldı ve içeride px-6 ile hafif kenar payı bırakıldı */}
+            <nav className="w-full px-6 py-4 flex justify-between items-center">
                 <div className="text-2xl font-bold text-white tracking-wider">
                     {projectData.groupName}
                 </div>
-                <div className="flex space-x-6">
+                <div className="hidden md:flex space-x-6">
                     {navItems.map((item) => (
                         <a 
                             key={item.name}
@@ -581,7 +582,6 @@ const Navbar = () => {
         </header>
     );
 };
-
 
 // --- Ana Uygulama Bileşeni ---
 const App = () => {
