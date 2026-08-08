@@ -23,8 +23,8 @@ Hava araçlarının tasarımında kritik bir parametre olan **Ağırlık Merkezi
 * **X-Y Koordinat Düzleminde Görselleştirme:** Geliştirilen C/C++ tabanlı gömülü sistem ve kullanıcı arayüzü sayesinde AGM konumunun anlık takibi ve optimum denge noktası ile kıyaslanması.
 * **Otonom Dengeleme Mekanizması:** Kargo yükleme, yakıt tüketimi veya görev yükü değişimleri nedeniyle oluşan sapmaların, step motorlar ve hareketli karşı kütle mekanizmasıyla milimetrik hassasiyetle giderilmesi.
 * **GBYF Başarısı:** Genç Beyinler Yeni Fikirler (GBYF) yarışmasında yüzlerce proje arasından ilk 5'e girme başarısı.
-* **TUSAŞ LIFT-UP Programında 350+ projenin içinden ilk 10 a girme başarısı
-* **EMO(Elektrik Mühendisleri Odası)' nın yürüttüğü BPS'de sergilenme başarısı
+* TUSAŞ LIFT-UP Programında 350+ projenin içinden ilk 10 a girme başarısı
+* EMO(Elektrik Mühendisleri Odası)' nın yürüttüğü BPS'de sergilenme başarısı
 
 ---
 
