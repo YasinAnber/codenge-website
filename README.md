@@ -1,4 +1,4 @@
-# 🚁 CODENGE | Hava Aracı Ağırlık Merkezi Hesaplama ve Otomatik Dengeleme Sistemi
+# 🚁 CODENGE | Hava Aracı Ağırlık Merkezi Tespiti ve Otomatik Dengeleme Sistemi
 
 [![TUSAŞ LIFT-UP](https://img.shields.io/badge/TUSAS-LIFT--UP-blue?style=for-the-badge&logo=tusaş)](https://www.tusas.com)
 [![TED University](https://img.shields.io/badge/TED-University-red?style=for-the-badge)](https://www.tedu.edu.tr)
@@ -23,6 +23,8 @@ Hava araçlarının tasarımında kritik bir parametre olan **Ağırlık Merkezi
 * **X-Y Koordinat Düzleminde Görselleştirme:** Geliştirilen C/C++ tabanlı gömülü sistem ve kullanıcı arayüzü sayesinde AGM konumunun anlık takibi ve optimum denge noktası ile kıyaslanması.
 * **Otonom Dengeleme Mekanizması:** Kargo yükleme, yakıt tüketimi veya görev yükü değişimleri nedeniyle oluşan sapmaların, step motorlar ve hareketli karşı kütle mekanizmasıyla milimetrik hassasiyetle giderilmesi.
 * **GBYF Başarısı:** Genç Beyinler Yeni Fikirler (GBYF) yarışmasında yüzlerce proje arasından ilk 5'e girme başarısı.
+* **TUSAŞ LIFT-UP Programında 350+ projenin içinden ilk 10 a girme başarısı
+* **EMO(Elektrik Mühendisleri Odası)' nın yürüttüğü BPS'de sergilenme başarısı
 
 ---
 
@@ -42,8 +44,7 @@ Projede donanım, gömülü yazılım, masaüstü/web arayüzü ve mekanik tasar
 | :--- | :--- | :--- |
 | **Yasin Anber** | Bilgisayar Mühendisi | Bilgisayar Mühendisliği |
 | **Sude İpekci** | Bilgisayar Mühendisi | Bilgisayar Mühendisliği |
-| **Selin Göç** | Bilgisayar Mühendisi | Bilgisayar Mühendliği |
-| **Elif Sude Memiş** | Yazılım Mühendisi | Bilgisayar Mühendisliği |
+
 
 ---
 
