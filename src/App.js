@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Users, FileText, TrendingUp, Download, Link, Play, Scale, Camera, Cpu, Code, Activity, Settings, Layers, Monitor } from 'lucide-react';
 
 import './index.css';
-import mainManuImage from './images/main_manu3.jpg';
+import mainManuImage from './images/main_manu7.jpg';
 
 import prototipImg from './images/prototip.png';
 import arayuzImg from './images/arayuz.png';
@@ -15,17 +15,26 @@ import tusasLogo from './images/tusas.png';
 import teduLogo from './images/tedu.png';
 import sideRightImg from './images/side_right.png';
 import sideLeftImg from './images/side_left.png';
+import tekerImg from './images/teker.png';
+import finalProtoImg from './images/Picture2.jpg';
+import taslakImg from './images/taslak.png'; // CAD çizimi için olan görsel
+import belgeImg from './images/belge.png'; // Başarı belgesi
+import emoStantImg from './images/bps.jpeg'; // EMO BPS sergi görseli
+import demoVideo from './videos/demo.mp4';
+
+
+
+
 
 // --- Sabit Veriler ---
 const projectData = {
     groupName: "CODENGE",
-    tagline: "Hava Aracı Ağırlık Merkezi Hesaplama ve Otomatik Dengeleme Sistemi",
+    tagline: "Hava Aracı Ağırlık Merkezi Tespiti ve Otonom Dengeleme Sistemi",
     program: "TUSAŞ LIFT-UP",
     members: [
         { name: "Yasin Anber", role: "Bilgisayar Mühendisi" },
         { name: "Sude İpekci", role: "Bilgisayar Mühendisi" },
-        { name: "Selin Göç", role: "Bilgisayar Mühendisi" },
-        { name: "Elif Sude Memiş", role: "Yazılım Mühendisi" },
+        
     ],
 
     mockReports: [
@@ -151,7 +160,7 @@ const DescriptionSection = () => (
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-12">
                         <h2 className="text-4xl font-bold text-gray-800 flex items-center justify-center gap-3">
-                            Proje Detayı: Ağırlık Merkezi (AGM) Kontrolü
+                            Proje Detayı: Ağırlık Merkezi Tespiti ve Otonom Dengeleme Sistemi
                         </h2>
                         <div className="w-24 h-1.5 bg-indigo-600 rounded-full mx-auto mt-5"></div>
                     </div>
@@ -223,7 +232,8 @@ const TechStackSection = () => (
 );
 
 
-// 5. Proje Galerisi
+// 5. Proje Galerisi (Tüm Eski ve Yeni Öğeler)
+// 5. Proje Galerisi (Resim Hizalamaları Düzeltilmiş Hali)
 const GallerySection = () => (
     <section id="galeri" className="py-16 px-4 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -235,6 +245,8 @@ const GallerySection = () => (
             </div>
             
             <div className="grid lg:grid-cols-3 gap-8">
+                
+                {/* 1. SİSTEM PROTOTİPİ */}
                 <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 flex flex-col group">
                     <div className="h-64 overflow-hidden bg-black flex items-center justify-center">
                         <img src={prototipImg} alt="Sistem Prototipi" className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" />
@@ -249,6 +261,7 @@ const GallerySection = () => (
                     </div>
                 </div>
 
+                {/* 2. KULLANICI ARAYÜZÜ - UI */}
                 <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 flex flex-col group">
                     <div className="h-64 overflow-hidden bg-[#0d131f] flex items-center justify-center border-b border-gray-200">
                         <img src={arayuzImg} alt="Kullanıcı Arayüzü" className="w-full h-full object-contain transform group-hover:scale-105 transition duration-500 p-2" />
@@ -263,6 +276,25 @@ const GallerySection = () => (
                     </div>
                 </div>
 
+             {/* 7. LİFT-UP BAŞARI BELGESİ */}
+
+                <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 flex flex-col group">
+                    <div className="h-64 overflow-hidden bg-black flex items-center justify-center">
+                        <img src={belgeImg} alt="LIFT-UP Başarı Belgesi" className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" />
+                    </div>
+                    <div className="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 className="text-xl font-bold text-gray-800 mb-3 border-b border-gray-200 pb-2">TUSAŞ LIFT-UP Başarı Belgesi</h3>
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                                TUSAŞ LIFT-UP Sanayi Odaklı Lisans Bitirme Projeleri Programı kapsamında 350+ proje arasından <span className="font-bold text-blue-600">en iyi 18 ekip</span> arasına girerek almaya hak kazandığımız resmi başarı belgemiz.
+                            </p>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+                {/* 3. GBYF BAŞARISI */}
                 <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 flex flex-col group">
                     <div className="h-64 overflow-hidden bg-black flex items-center justify-center">
                         <img src={gbyfImg} alt="GBYF Başarısı" className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" />
@@ -276,6 +308,103 @@ const GallerySection = () => (
                         </div>
                     </div>
                 </div>
+{/* 8. EMO BPS PROJE SERGİSİ (DÜZELTİLDİ: object-contain yapıldı) */}
+<div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 flex flex-col group">
+    <div className="h-64 overflow-hidden bg-gray-900 flex items-center justify-center border-b border-gray-200">
+        <img src={emoStantImg} alt="EMO BPS Proje Sergisi" className="w-full h-full object-contain transform group-hover:scale-105 transition duration-500 p-2" />
+    </div>
+    <div className="p-6 flex-grow flex flex-col justify-between">
+        <div>
+            <h3 className="text-xl font-bold text-gray-800 mb-3 border-b border-gray-200 pb-2">EMO BPS Proje Sergisi</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+                EMO Ankara Şubesi tarafından yürütülen Bitirme Projeleri Sergisi'nde (BPS) projemizi ve otonom dengeleme prototipimizi ziyaretçilere sunduğumuz stant alanımız.
+            </p>
+        </div>
+    </div>
+</div>
+               
+
+                {/* 5. PROTOTİPİN NİHAİ HALİ */}
+                <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 flex flex-col group">
+                    <div className="h-64 overflow-hidden bg-black flex items-center justify-center">
+                        <img src={finalProtoImg} alt="Prototipin Nihai Hali" className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" />
+                    </div>
+                    <div className="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 className="text-xl font-bold text-gray-800 mb-3 border-b border-gray-200 pb-2">Prototipin Nihai Hali</h3>
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                                Tandem rotorlu helikopter modelimiz üzerinde otonom karşı ağırlık mekanizmasının, step motorların ve entegre sensör altyapısının eksiksiz olarak monte edildiği son üretim aşaması.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+               
+
+                 {/* 4. SENSÖR ÖLÇÜMÜ VE FİLTRELEME (DÜZELTİLDİ: bg-white ve object-contain yapıldı) */}
+                <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 flex flex-col group">
+                    <div className="h-64 overflow-hidden bg-white flex items-center justify-center border-b border-gray-200">
+                        <img src={tekerImg} alt="Sensör Ölçümü ve Filtreleme" className="w-full h-full object-contain transform group-hover:scale-105 transition duration-500 p-2" />
+                    </div>
+                    <div className="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 className="text-xl font-bold text-gray-800 mb-3 border-b border-gray-200 pb-2">Sensör Ölçümü ve Filtreleme</h3>
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                                Ağırlık merkezini hassas ölçerken mekanik titreşimlerden kaynaklı veri gürültüleriyle karşılaştık. Geliştirdiğimiz kararlı dijital filtreleme algoritmaları sayesinde bu dalgalanmaları süzerek anlık ve güvenilir ağırlık verileri elde ettik.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* 6. İLK TASLAK VE MEKANİK PLANLAMA (DÜZELTİLDİ: bg-white yapıldı) */}
+                <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 flex flex-col group">
+                    <div className="h-64 overflow-hidden bg-white flex items-center justify-center border-b border-gray-200">
+                        <img src={taslakImg} alt="İlk Taslak ve Mekanik Planlama" className="w-full h-full object-contain transform group-hover:scale-105 transition duration-500 p-2" />
+                    </div>
+                    <div className="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 className="text-xl font-bold text-gray-800 mb-3 border-b border-gray-200 pb-2">İlk Taslak ve Mekanik Planlama</h3>
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                                Projenin başlangıç aşamasında tasarlanan X-Y eksenli dengeleme sisteminin ve hareketli kütle mimarisinin ilk teknik çizim ve CAD taslağı.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                
+
+            </div>
+        </div>
+    </section>
+);
+
+
+// 5.5. Proje Demo Videosu Bölümü
+
+const DemoSection = () => (
+    <section id="demo" className="py-20 px-4 md:px-12 bg-[#0b0f19] text-white border-b border-gray-800">
+        <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-white flex items-center justify-center gap-3">
+                    <Play className="text-pink-500 w-10 h-10" /> Proje Demo Videosu
+                </h2>
+                <div className="w-24 h-1.5 bg-pink-500 rounded-full mx-auto mt-5"></div>
+                <p className="text-gray-300 mt-4 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+                    Hava aracı ağırlık merkezi tespiti, loadcell sensör verilerinin işlenmesi ve otonom dengeleme mekanizmasının çalışırkenki anlık görüntüsü.
+                </p>
+            </div>
+            
+            {/* Yerel Video Oynatıcı Çerçevesi */}
+            <div className="relative w-full aspect-video bg-black rounded-2xl shadow-2xl overflow-hidden border-4 border-gray-700">
+                <video
+                    className="absolute top-0 left-0 w-full h-full object-cover"
+                    controls
+                    playsInline
+                >
+                    <source src={demoVideo} type="video/mp4" />
+                    Tarayıcınız video etiketini desteklemiyor.
+                </video>
             </div>
         </div>
     </section>
@@ -283,6 +412,7 @@ const GallerySection = () => (
 
 
 // 6. Grup Üyeleri
+
 const TeamSection = () => (
     <section id="ekip" className="py-16 px-4 md:px-12 bg-gray-900 text-white">
         <div className="max-w-6xl mx-auto">
@@ -293,9 +423,10 @@ const TeamSection = () => (
                 <div className="w-24 h-1.5 bg-blue-500 rounded-full mx-auto mt-5"></div>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-8">
+            {/* Grid yerine flex justify-center kullanarak kartları ortaladık ve genişlik verdik */}
+            <div className="flex flex-wrap justify-center gap-8">
                 {projectData.members.map((member, index) => (
-                    <div key={index} className="text-center p-6 bg-gray-800 rounded-xl shadow-lg border-t-4 border-indigo-600 transform hover:scale-[1.03] transition duration-300">
+                    <div key={index} className="w-full sm:w-64 text-center p-6 bg-gray-800 rounded-xl shadow-lg border-t-4 border-indigo-600 transform hover:scale-[1.03] transition duration-300">
                         <div className="w-20 h-20 bg-blue-500/20 rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-bold border-2 border-blue-500">
                             {member.name.split(' ')[0][0]}{member.name.split(' ').slice(-1)[0][0]}
                         </div>
@@ -423,6 +554,7 @@ const Navbar = () => {
         { name: "Ana Sayfa", href: "#anasayfa" },
         { name: "Açıklama", href: "#aciklama" },
         { name: "Galeri", href: "#galeri" },
+        { name: "Demo", href: "#demo" },
         { name: "Ekip", href: "#ekip" },
         { name: "Paydaşlar", href: "#paydaslar" }, 
         { name: "Raporlar", href: "#raporlar" },
@@ -486,6 +618,7 @@ const App = () => {
                 <DescriptionSection />
                 <TechStackSection />
                 <GallerySection />
+                <DemoSection />
                 <TeamSection />
                 <StakeholderSection /> 
                 <ReportSection />
