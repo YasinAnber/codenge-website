@@ -40,10 +40,10 @@ Projede donanım, gömülü yazılım, masaüstü/web arayüzü ve mekanik tasar
 
 ## 👥 Proje Ekibi
 
-| Ad Soyad | Rol | Bölüm |
-| :--- | :--- | :--- |
-| **Yasin Anber** | Bilgisayar Mühendisi | Bilgisayar Mühendisliği |
-| **Sude İpekci** | Bilgisayar Mühendisi | Bilgisayar Mühendisliği |
+| Ad Soyad | Rol |
+| :--- | :--- | 
+| **Yasin Anber** | Bilgisayar Mühendisi | 
+| **Sude İpekci** | Bilgisayar Mühendisi |
 
 
 ---
