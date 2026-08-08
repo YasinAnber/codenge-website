@@ -387,9 +387,9 @@ const DemoSection = () => (
         <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
                 <h2 className="text-4xl font-bold text-white flex items-center justify-center gap-3">
-                    <Play className="text-pink-500 w-10 h-10" /> Proje Demo Videosu
+                    <Play className="text-pink-700 w-10 h-10" /> Proje Demo Videosu
                 </h2>
-                <div className="w-24 h-1.5 bg-pink-500 rounded-full mx-auto mt-5"></div>
+                <div className="w-24 h-1.5 bg-pink-700 rounded-full mx-auto mt-5"></div>
                 <p className="text-gray-300 mt-4 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
                     Hava aracı ağırlık merkezi tespiti, loadcell sensör verilerinin işlenmesi ve otonom dengeleme mekanizmasının çalışırkenki anlık görüntüsü.
                 </p>
