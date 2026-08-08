@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# 🚁 CODENGE | Hava Aracı Ağırlık Merkezi Hesaplama ve Otomatik Dengeleme Sistemi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![TUSAŞ LIFT-UP](https://img.shields.io/badge/TUSAS-LIFT--UP-blue?style=for-the-badge&logo=tusaş)](https://www.tusas.com)
+[![TED University](https://img.shields.io/badge/TED-University-red?style=for-the-badge)](https://www.tedu.edu.tr)
+[![Live Demo](https://img.shields.io/badge/Website-Live_Demo-success?style=for-the-badge&logo=vercel)](https://codenge.vercel.app)
 
-## Available Scripts
+> **TUSAŞ LIFT-UP Endüstri Odaklı Bitirme Projesi** kapsamında geliştirilen yenilikçi havacılık ve gömülü sistem projesi.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🌐 Canlı Web Sitesi
+Projemizin tüm detaylarını, galeri görsellerini, teknik raporlarımızı ve ekip bilgilerini inceleyebileceğiniz modern arayüzümüze aşağıdaki bağlantıdan ulaşabilirsiniz:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+👉 **[CODENGE Proje Web Sitesi](https://codenge.vercel.app)**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 📌 Proje Hakkında
+Hava araçlarının tasarımında kritik bir parametre olan **Ağırlık Merkezi (AGM)**, uçuş emniyetini, aerodinamik performansı ve yakıt verimliliğini doğrudan belirler. **CODENGE** projesi; küçük ve büyük ölçekli hava platformlarında bu hayati dengeyi anlık olarak ölçmek, sapmaları tespit etmek ve akıllı bir karşı ağırlık sistemiyle otonom olarak sıfırlamak üzere tasarlanmış tam otomatik bir sistemdir.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🌟 Temel Özellikler
+* **Hassas Ağırlık Merkezi (AGM) Hesaplama:** Her bir iniş takımı altına entegre edilen yüksek hassasiyetli 3 adet *loadcell* (yük hücresi) ile anlık kütle verilerinin toplanması.
+* **X-Y Koordinat Düzleminde Görselleştirme:** Geliştirilen C/C++ tabanlı gömülü sistem ve kullanıcı arayüzü sayesinde AGM konumunun anlık takibi ve optimum denge noktası ile kıyaslanması.
+* **Otonom Dengeleme Mekanizması:** Kargo yükleme, yakıt tüketimi veya görev yükü değişimleri nedeniyle oluşan sapmaların, step motorlar ve hareketli karşı kütle mekanizmasıyla milimetrik hassasiyetle giderilmesi.
+* **GBYF Başarısı:** Genç Beyinler Yeni Fikirler (GBYF) yarışmasında yüzlerce proje arasından ilk 5'e girme başarısı.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Kullanılan Teknolojiler
+Projede donanım, gömülü yazılım, masaüstü/web arayüzü ve mekanik tasarım alanlarında şu modern teknolojiler ve bileşenler kullanılmıştır:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* **Gömülü Sistemler & Donanım:** C/C++, Arduino / Mikrodenetleyiciler, Loadcell (HX711 amplifikatör modülleri), Step Motorlar & Vidalı Mil Mekanizması.
+* **Yazılım & Arayüz:** Python (Kullanıcı Arayüzü / UI), C/C++ (Düşük seviye filtreleme algoritmaları).
+* **Web Teknolojileri:** React.js, Tailwind CSS, Vercel (Hosting).
+* **Prototipleme:** 3D Modelleme ve Katmanlı Üretim (Tandem rotorlu helikopter modeli).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 👥 Proje Ekibi
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Ad Soyad | Rol | Bölüm |
+| :--- | :--- | :--- |
+| **Yasin Anber** | Bilgisayar Mühendisi | Bilgisayar Mühendisliği |
+| **Sude İpekci** | Bilgisayar Mühendisi | Bilgisayar Mühendisliği |
+| **Selin Göç** | Bilgisayar Mühendisi | Bilgisayar Mühendliği |
+| **Elif Sude Memiş** | Yazılım Mühendisi | Bilgisayar Mühendisliği |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🏛️ Paydaşlar ve Yönetim
+* **Koordinatör Mühendis:** Abdulkadir Nazlı
+* **Danışman Hoca:** Hakkı Gökhan İlk
+* **Jüri Üyeleri:** Ayşe Yasmin Seydim, Ali Berkol
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 📄 Proje Raporları
+Proje süreci boyunca hazırlanan şartname raporları, analiz raporları, üst düzey (HLD) ve düşük düzey (LLD) tasarım raporları, test planları ve nihai raporlar dokümantasyon sürecimizde titizlikle saklanmaktadır. Web sitemiz üzerinden tüm raporlara PDF/Word formatında erişilebilir.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📜 Telif & Haklar
+Bu proje **TUSAŞ LIFT-UP** programı kapsamında **TED Üniversitesi** bünyesinde geliştirilmiştir. Tüm hakları saklıdır.
